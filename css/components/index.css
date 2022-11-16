@@ -117,6 +117,10 @@ body {
   display: flex;
 }
 
+.works__item {
+  position: relative;
+}
+
 .works__item-image {
   width: 370px;
   height: auto;
@@ -124,6 +128,27 @@ body {
 
 .works__item:not(:last-child) {
   margin-right: 30px;
+}
+
+.works__item-text-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 370px;
+  height: 70px;
+
+  background-color: rgba(47, 48, 58, 0.8);
+}
+
+.works__item-text {
+  font-weight: var(--title-weight);
+  font-size: var(--primary-size);
+  line-height: calc(16 / 14);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  color: var(--white-color);
 }
 
 .team {
@@ -229,17 +254,27 @@ body {
   border: 1px solid var(--svg-main-color);
   border-radius: 4px;
 
-  color: var(--svg-main-color);
-
-  transition: color var(--hover-transition), border var(--hover-transition);
+  transition: border-color var(--hover-transition);
 }
 
 .clients__list-svg {
-  fill: currentColor;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  fill: var(--svg-main-color);
+
+  transition: fill var(--hover-transition);
 }
 
 .clients__list-link:focus,
 .clients__list-link:hover {
   border-color: var(--active-color);
-  color: var(--active-color);
+  fill: var(--active-color);
+}
+
+.clients__list-link:focus .clients__list-svg,
+.clients__list-link:hover .clients__list-svg {
+  border-color: var(--active-color);
+  fill: var(--active-color);
 }
